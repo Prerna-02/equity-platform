@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection - EquityAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fraud-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo"><a href="index.html" style="color: inherit;">📊 EquityAI</a></h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fraud-detection.html" class="nav-link active">Fraud Detection</a></li>
+                <li><a href="facial-recognition.html" class="nav-link">Face Login</a></li>
+                <li><a href="roi-calculator.html" class="nav-link">ROI Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="fraud-detection-page">
+        <div class="container">
+            <h1 class="page-title">🛡️ Fraud Risk Detection</h1>
+            <p class="page-subtitle">AI-powered transaction monitoring to keep your investments safe</p>
+
+            <div class="fraud-content">
+                <!-- Transaction Input Form -->
+                <div class="fraud-card">
+                    <h2>Check Transaction Risk</h2>
+                    <p class="card-subtitle">Enter transaction details to analyze fraud risk</p>
+
+                    <form id="fraudForm" class="fraud-form">
+                        <div class="form-group">
+                            <label for="amount">Transaction Amount (₹)</label>
+                            <input type="number" id="amount" name="amount" placeholder="e.g., 5000" min="0" step="100"
+                                required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hour">Time of Transaction</label>
+                                <select id="hour" name="hour" required>
+                                    <option value="">Select hour...</option>
+                                    <option value="0">12 AM - 1 AM</option>
+                                    <option value="1">1 AM - 2 AM</option>
+                                    <option value="2">2 AM - 3 AM</option>
+                                    <option value="3">3 AM - 4 AM</option>
+                                    <option value="4">4 AM - 5 AM</option>
+                                    <option value="5">5 AM - 6 AM</option>
+                                    <option value="6">6 AM - 7 AM</option>
+                                    <option value="7">7 AM - 8 AM</option>
+                                    <option value="8">8 AM - 9 AM</option>
+                                    <option value="9">9 AM - 10 AM</option>
+                                    <option value="10">10 AM - 11 AM</option>
+                                    <option value="11">11 AM - 12 PM</option>
+                                    <option value="12">12 PM - 1 PM</option>
+                                    <option value="13">1 PM - 2 PM</option>
+                                    <option value="14">2 PM - 3 PM</option>
+                                    <option value="15">3 PM - 4 PM</option>
+                                    <option value="16">4 PM - 5 PM</option>
+                                    <option value="17">5 PM - 6 PM</option>
+                                    <option value="18">6 PM - 7 PM</option>
+                                    <option value="19">7 PM - 8 PM</option>
+                                    <option value="20">8 PM - 9 PM</option>
+                                    <option value="21">9 PM - 10 PM</option>
+                                    <option value="22">10 PM - 11 PM</option>
+                                    <option value="23">11 PM - 12 AM</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="isWeekend">Day Type</label>
+                                <select id="isWeekend" name="isWeekend" required>
+                                    <option value="0">Weekday</option>
+                                    <option value="1">Weekend</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="locationChange">Location</label>
+                                <select id="locationChange" name="locationChange" required>
+                                    <option value="0">Same location</option>
+                                    <option value="1">Different location</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deviceChange">Device</label>
+                                <select id="deviceChange" name="deviceChange" required>
+                                    <option value="0">Same device</option>
+                                    <option value="1">New device</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="failedLogins">Failed Login Attempts</label>
+                            <input type="number" id="failedLogins" name="failedLogins" value="0" min="0" max="10"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            🔍 Analyze Risk
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Risk Score Display -->
+                <div class="fraud-card" id="resultCard" style="display: none;">
+                    <h2>Risk Analysis Result</h2>
+
+                    <!-- Risk Gauge -->
+                    <div class="risk-gauge">
+                        <div class="gauge-container">
+                            <svg viewBox="0 0 200 120" class="gauge-svg">
+                                <!-- Background arc -->
+                                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1E293B"
+                                    stroke-width="20" />
+                                <!-- Risk arc (will be updated dynamically) -->
+                                <path id="riskArc" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#3B82F6"
+                                    stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
+                            </svg>
+                            <div class="gauge-value">
+                                <span id="riskScore">0</span>%
+                            </div>
+                            <div class="gauge-label" id="riskLabel">Analyzing...</div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Explanation -->
+                    <div class="risk-explanation" id="riskExplanation">
+                        <h3>Risk Factors:</h3>
+                        <ul id="riskFactors"></ul>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="risk-actions">
+                        <button class="btn btn-secondary" onclick="resetForm()">
+                            Check Another Transaction
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="fraud-card full-width">
+                    <h2>Recent Transactions</h2>
+                    <div class="transaction-history" id="transactionHistory">
+                        <p class="text-muted">No transactions yet. Analyze your first transaction above!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/fraud-detection.js"></script>
+</body>
+
+</html>
