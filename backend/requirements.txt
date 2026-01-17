@@ -1,0 +1,29 @@
+# Core Dependencies
+flask==3.0.0
+flask-cors==4.0.0
+python-dotenv==1.0.0
+
+# Database
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.23
+
+# ML/DL (CPU-optimized)
+tensorflow-cpu==2.15.0
+scikit-learn==1.3.2
+pandas==2.1.4
+numpy==1.26.2
+
+# Data Fetching
+yfinance==0.2.32
+newsapi-python==0.2.7
+
+# Sentiment Analysis
+textblob==0.17.1
+
+# Face Recognition
+deepface==0.0.79
+
+# Utilities
+python-dateutil==2.8.2
+requests==2.31.0
+Pillow==10.1.0
