@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Intelligent Equity Investment Platform
 
 AI-powered equity investment platform with fraud detection, facial recognition, ROI predictions, and hyper-personalization.
@@ -71,3 +72,6 @@ Built by Prerna with AI assistance
 ---
 
 **Let's build something amazing!** 🚀
+=======
+# equity-platform
+>>>>>>> 01b85c8c5bec15397e7e93c1d8755b4fbfef328a
