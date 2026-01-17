@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-powered equity investment platform with fraud detection, facial recognition, and ROI predictions">
+    <meta name="description"
+        content="AI-powered equity investment platform with fraud detection, facial recognition, and ROI predictions">
     <title>Equity Platform - AI-Powered Investment Intelligence</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -29,6 +32,13 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -36,7 +46,7 @@
                     <span class="gradient-text">Investment Companion</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Intelligent fraud detection, secure biometric login, AI-powered ROI predictions, 
+                    Intelligent fraud detection, secure biometric login, AI-powered ROI predictions,
                     and hyper-personalization—all in one platform.
                 </p>
                 <div class="hero-buttons">
@@ -49,16 +59,16 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <h3>50+</h3>
+                        <h3 class="counter" data-target="50">0</h3>
                         <p>Indian Stocks</p>
                     </div>
                     <div class="stat">
-                        <h3>95%+</h3>
-                        <p>Fraud Detection</p>
+                        <h3 class="counter" data-target="4">0</h3>
+                        <p>AI Features</p>
                     </div>
                     <div class="stat">
-                        <h3>60%+</h3>
-                        <p>Prediction Accuracy</p>
+                        <h3><span class="counter" data-target="10">0</span>yr</h3>
+                        <p>Historical Data</p>
                     </div>
                 </div>
             </div>
@@ -70,16 +80,17 @@
         <div class="container">
             <h2 class="section-title">Powered by Deep Learning</h2>
             <p class="section-subtitle">Four AI-driven features to transform your investment journey</p>
-            
+
             <div class="features-grid">
                 <!-- Feature 1: Fraud Detection -->
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
                     <h3>Fraud Risk Detection</h3>
-                    <p>Real-time transaction monitoring with neural network-based anomaly detection. Catch suspicious activities before they happen.</p>
+                    <p>Real-time transaction monitoring with neural network-based anomaly detection. Catch suspicious
+                        activities before they happen.</p>
                     <ul class="feature-list">
-                        <li>95%+ fraud detection rate</li>
-                        <li>Real-time risk scoring</li>
+                        <li>AI-powered risk scoring</li>
+                        <li>Real-time monitoring</li>
                         <li>Personalized alerts</li>
                     </ul>
                     <a href="fraud-detection.html" class="feature-link">Try It →</a>
@@ -89,11 +100,12 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3>Facial Recognition Login</h3>
-                    <p>Secure, passwordless authentication using state-of-the-art CNN technology. Your face is your password.</p>
+                    <p>Secure biometric authentication using state-of-the-art CNN technology. Login with your face OR
+                        password—your choice.</p>
                     <ul class="feature-list">
-                        <li>99.6% accuracy (Facenet)</li>
+                        <li>Industry-leading accuracy</li>
                         <li>Privacy-first (no images stored)</li>
-                        <li>3-second verification</li>
+                        <li>Password fallback available</li>
                     </ul>
                     <a href="facial-recognition.html" class="feature-link">Try It →</a>
                 </div>
@@ -102,9 +114,10 @@
                 <div class="feature-card">
                     <div class="feature-icon">📈</div>
                     <h3>ROI Calculator & Predictor</h3>
-                    <p>LSTM-powered predictions with confidence intervals. See 10-year history and future projections with news sentiment analysis.</p>
+                    <p>LSTM-powered predictions with confidence intervals. See 10-year history and future projections
+                        with news sentiment analysis.</p>
                     <ul class="feature-list">
-                        <li>60%+ directional accuracy</li>
+                        <li>AI-driven predictions</li>
                         <li>Confidence intervals shown</li>
                         <li>News sentiment integrated</li>
                     </ul>
@@ -115,7 +128,8 @@
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3>Hyper-Personalization</h3>
-                    <p>Adaptive UI that learns from your behavior. Get recommendations tailored to your expertise and preferences.</p>
+                    <p>Adaptive UI that learns from your behavior. Get recommendations tailored to your expertise and
+                        preferences.</p>
                     <ul class="feature-list">
                         <li>Beginner to expert modes</li>
                         <li>Smart recommendations</li>
@@ -132,7 +146,7 @@
         <div class="container">
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle">Simple, intelligent, and transparent</p>
-            
+
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -205,11 +219,13 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 EquityAI. Built with ❤️ for investors.</p>
-                <p class="disclaimer-text">⚠️ Not financial advice. For educational purposes only.</p>
+                <p class="disclaimer-text">💡 EquityAI provides professional investment tools and AI-powered insights to
+                    help you make informed decisions.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/app.js"></script>
 </body>
+
 </html>

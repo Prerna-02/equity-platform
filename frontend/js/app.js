@@ -38,7 +38,49 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add animation on scroll
+// Counter Animation for Stats
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const increment = target / (duration / 16); // 60fps
+    let current = 0;
+
+    const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    };
+
+    updateCounter();
+}
+
+// Trigger counter animation when stats come into view
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                if (!counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    animateCounter(counter);
+                }
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe hero stats
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+    statsObserver.observe(heroStats);
+}
+
+// Add animation on scroll for feature cards
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -57,4 +99,26 @@ document.querySelectorAll('.feature-card, .step').forEach(el => {
     observer.observe(el);
 });
 
+// Button ripple effect
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+
+        this.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
 console.log('🚀 EquityAI Platform Loaded Successfully!');
+console.log('✨ Animations enabled');
+
